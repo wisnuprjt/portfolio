@@ -1,4 +1,5 @@
 import { Apple, ArrowRight, ArrowUpRight, Brain, CarFront, Cpu, Layers3, type LucideIcon } from "lucide-react";
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 const projectIcons: Record<string, LucideIcon> = {
@@ -9,14 +10,38 @@ const projectIcons: Record<string, LucideIcon> = {
   racingcar: CarFront,
 };
 
-export default function ProjectCard({ project, onSelect }: { project: Project; onSelect: (project: Project) => void }) {
+export default function ProjectCard({
+  project,
+  onSelect,
+  isClone = false,
+}: {
+  project: Project;
+  onSelect: (project: Project) => void;
+  isClone?: boolean;
+}) {
   const ProjectIcon = projectIcons[project.id] ?? Layers3;
 
   return (
-    <button className="project-card" onClick={() => onSelect(project)}>
-      <div className="project-art">
+    <button
+      className="project-card"
+      onClick={() => onSelect(project)}
+      aria-hidden={isClone}
+      tabIndex={isClone ? -1 : undefined}
+    >
+      <div className={`project-art${project.image ? " project-art-with-image" : ""}`}>
+        {project.image && (
+          <Image
+            src={project.image}
+            alt={`${project.name} project preview`}
+            fill
+            sizes="(max-width: 680px) 100vw, 50vw"
+            className="project-art-image"
+          />
+        )}
         <div className="project-art-top"><span>{project.number} / PROJECT</span><ArrowUpRight size={18}/></div>
-        <div className={`project-art-mark mark-${project.id}`}><ProjectIcon size={52}/></div>
+        {!project.image && (
+          <div className={`project-art-mark mark-${project.id}`}><ProjectIcon size={52}/></div>
+        )}
         <span className="project-art-name">{project.name}</span>
         <span className="project-art-caption">PROJECT OVERVIEW</span>
       </div>

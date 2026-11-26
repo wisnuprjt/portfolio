@@ -18,7 +18,8 @@ export const contact = {
   email: "wisnuprjt@gmail.com",
   linkedin: "https://www.linkedin.com/in/wisnuprjt/",
   github: "https://github.com/wisnuprjt",
-  resume: "/documents/Kadek_Wisnu_Parijata_Putra_Resume.pdf"
+  resume: "/documents/Kadek_Wisnu_Parijata_Putra_Resume.pdf",
+  portfolio: "/documents/Kadek_Wisnu_Parijata_Putra_Portfolio.pdf"
 };
 
 export const navigation = [

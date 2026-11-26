@@ -552,16 +552,41 @@ a:focus-visible {
   padding-right: max(34px, calc((100vw - 1172px) / 2));
 }
 
+.expertise-logo-loop {
+  margin-bottom: 42px;
+  padding: 18px 0;
+  border-block: 1px solid var(--border-strong);
+}
+
+.expertise-logo-loop .skill-brand-icon,
+.expertise-logo-loop .skill-concept-icon {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+}
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border-top: 1px solid var(--border-strong);
-  border-left: 1px solid var(--border-strong);
+}
+
+.skill-card {
+  grid-column: span 2;
+}
+
+.skill-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.skill-card:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .skill-card {
   min-height: 225px;
   padding: 25px;
+  border-left: 1px solid var(--border-strong);
   border-right: 1px solid var(--border-strong);
   border-bottom: 1px solid var(--border-strong);
 }
@@ -649,7 +674,17 @@ a:focus-visible {
   opacity: .95;
 }
 
+[data-theme="dark"] .skill-brand-icon[data-icon="nextdotjs"],
+[data-theme="dark"] .skill-brand-icon[data-icon="express"],
+[data-theme="dark"] .skill-brand-icon[data-icon="github"] {
+  filter: brightness(0) invert(1);
+}
+
 @media (max-width: 680px) {
+  .expertise-logo-loop {
+    margin-bottom: 30px;
+  }
+
   .tag-list {
     gap: 7px;
   }
@@ -669,12 +704,43 @@ a:focus-visible {
 }
 
 .project-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 20px;
+  padding: 4px 0;
+  margin: -4px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.project-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.project-grid.is-dragging {
+  scroll-snap-type: none;
+  user-select: none;
+  cursor: grabbing;
+}
+
+.project-grid.is-recentering {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-grid {
+    scroll-snap-type: none;
+  }
 }
 
 .project-card {
+  flex: 0 0 calc((100% - 20px) / 2);
+  min-width: 0;
+  scroll-snap-align: start;
   text-align: left;
   color: inherit;
   cursor: pointer;
@@ -694,7 +760,8 @@ a:focus-visible {
 }
 
 .project-art {
-  height: 245px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -702,6 +769,20 @@ a:focus-visible {
   justify-content: center;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--border);
+}
+
+.project-art-with-image {
+  background: #fff;
+}
+
+.project-art-with-image::before,
+.project-art-with-image::after {
+  display: none;
+}
+
+.project-art-image {
+  z-index: 0;
+  object-fit: contain;
 }
 
 .project-art::before,
@@ -758,6 +839,10 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: -.06em;
   z-index: 1;
+}
+
+.project-art-with-image .project-art-name {
+  bottom: 20px;
 }
 
 .project-art-caption {
@@ -1081,17 +1166,22 @@ a:focus-visible {
   margin-top: 75px;
   padding-top: 30px;
   border-top: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 9%;
+}
+
+.certification-block > div:first-child {
+  margin-bottom: 30px;
 }
 
 .certification-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 36px;
   border-top: 1px solid var(--border);
 }
 
 .certification-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) auto 15px;
   align-items: center;
   gap: 12px;
   padding: 14px 0;
@@ -1100,8 +1190,61 @@ a:focus-visible {
   font-size: 11px;
 }
 
-.certification-item span {
-  flex: 1;
+.certification-logo {
+  width: 58px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
+
+.certification-logo img {
+  width: 48px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.certification-logo-undip {
+  background: #fff;
+  border-radius: 3px;
+}
+
+.certification-logo-cisco {
+  color: #1ba0d7;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.06em;
+}
+
+.certification-logo-oracle {
+  color: #f80000;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+.certification-logo-huawei {
+  color: #cf0a2c;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+}
+
+.certification-logo-ibm {
+  color: #1261fe;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.certification-item > span {
+  min-width: 0;
+}
+
+.certification-item time {
+  color: var(--text-muted);
+  font-size: 10px;
+  white-space: nowrap;
 }
 
 .certification-item > svg:last-child {
@@ -1268,6 +1411,39 @@ a:focus-visible {
 
 .dialog-content {
   padding: 28px;
+}
+
+.dialog-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.dialog-cover img {
+  object-fit: contain;
+}
+
+.dialog-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.dialog-gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.dialog-gallery-item img {
+  object-fit: cover;
 }
 
 .dialog-content h2 {
@@ -1536,11 +1712,14 @@ a:focus-visible {
 
   .about-grid,
   .education-grid,
-  .certification-block,
   .org-block,
   .contact-panel {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .certification-list {
+    grid-template-columns: 1fr;
   }
 
   .about-lead {
@@ -1556,6 +1735,10 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .skill-card:nth-child(n) {
+    grid-column: auto;
+  }
+
   .skill-card {
     min-height: 0;
     padding: 22px;
@@ -1566,11 +1749,11 @@ a:focus-visible {
   }
 
   .project-grid {
-    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .project-art {
-    height: 210px;
+  .project-card {
+    flex-basis: 100%;
   }
 
   .project-card-body {

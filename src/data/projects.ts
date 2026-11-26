@@ -12,6 +12,7 @@ export type Project = {
   technologies: string[];
   featured: boolean;
   image?: string;
+  galleryImages?: string[];
   links: { label: string; url: string }[];
 };
 
@@ -30,7 +31,14 @@ export const projects: Project[] = [
     ],
     outcome: "Delivered an integrated prototype combining IoT data collection, web-based monitoring, and supporting analysis features. The project also received an award at the Capstone Expo and an intellectual property registration, as documented in the supplied portfolio materials.",
     technologies: ["Next.js", "Node.js", "Express.js", "MySQL", "ESP32", "IoT", "REST API"],
-    featured: true, image: "/images/projects/colivera/cover-placeholder.svg",
+    featured: true, image: "/images/projects/colivera/colivera.jpg",
+    galleryImages: [
+      "/images/projects/colivera/colivera (1).jpg",
+      "/images/projects/colivera/colivera (2).png",
+      "/images/projects/colivera/colivera (3).jpg",
+      "/images/projects/colivera/colivera (4).jpg",
+      "/images/projects/colivera/colivera (5).jpg",
+    ],
     links: [{ label: "Repository", url: "#" }, { label: "Live demo", url: "#" }]
   },
   {
@@ -46,7 +54,14 @@ export const projects: Project[] = [
     ],
     outcome: "The CV documents project activity from June to September 2025 and use in a community activity involving up to 400 participants.",
     technologies: ["Web Development", "JavaScript", "Database", "UI Development"],
-    featured: true, image: "/images/projects/ihealth-edu/cover-placeholder.svg",
+    featured: true, image: "/images/projects/ihealth-edu/cover.jpg",
+    galleryImages: [
+      "/images/projects/ihealth-edu/cover-placeholder.svg",
+      "/images/projects/ihealth-edu/cover-placeholder.svg",
+      "/images/projects/ihealth-edu/cover-placeholder.svg",
+      "/images/projects/ihealth-edu/cover-placeholder.svg",
+      "/images/projects/ihealth-edu/cover-placeholder.svg",
+    ],
     links: [{ label: "Repository", url: "#" }, { label: "Project details", url: "#" }]
   },
   {
@@ -62,7 +77,15 @@ export const projects: Project[] = [
     ],
     outcome: "The supplied portfolio reports an 82% usability result and a satisfaction score of 4.26/5. The project also received a first-winner recognition and a publication, as documented in the source materials.",
     technologies: ["Figma", "UI/UX Design", "Design Thinking", "Prototyping"],
-    featured: false, image: "/images/projects/dopamind/cover-placeholder.svg",
+    featured: false,
+    image: "/images/projects/dopamind/dopamind.jpg",
+    galleryImages: [
+      "/images/projects/dopamind/cover-placeholder.svg",
+      "/images/projects/dopamind/cover-placeholder.svg",
+      "/images/projects/dopamind/cover-placeholder.svg",
+      "/images/projects/dopamind/cover-placeholder.svg",
+      "/images/projects/dopamind/cover-placeholder.svg",
+    ],
     links: [{ label: "Prototype", url: "#" }, { label: "Publication", url: "#" }]
   },
   {
@@ -78,7 +101,14 @@ export const projects: Project[] = [
     ],
     outcome: "The project received third place in a national UI/UX design competition, according to the supplied portfolio materials.",
     technologies: ["Figma", "UI/UX Design", "Wireframing", "Prototyping"],
-    featured: false, image: "/images/projects/nourish/cover-placeholder.svg",
+    featured: false, image: "/images/projects/nourish/nourish.jpg",
+    galleryImages: [
+      "/images/projects/nourish/cover-placeholder.svg",
+      "/images/projects/nourish/cover-placeholder.svg",
+      "/images/projects/nourish/cover-placeholder.svg",
+      "/images/projects/nourish/cover-placeholder.svg",
+      "/images/projects/nourish/cover-placeholder.svg",
+    ],
     links: [{ label: "Prototype", url: "#" }]
   },
   {
@@ -94,7 +124,14 @@ export const projects: Project[] = [
     ],
     outcome: "The supplied portfolio describes the project as achieving the highest score in its cohort.",
     technologies: ["Unity", "C#", "3D Design", "Game Development"],
-    featured: false, image: "/images/projects/racingcar/cover-placeholder.svg",
+    featured: false, image: "/images/projects/racingcar/racing.png",
+    galleryImages: [
+      "/images/projects/racingcar/cover-placeholder.svg",
+      "/images/projects/racingcar/cover-placeholder.svg",
+      "/images/projects/racingcar/cover-placeholder.svg",
+      "/images/projects/racingcar/cover-placeholder.svg",
+      "/images/projects/racingcar/cover-placeholder.svg",
+    ],
     links: [{ label: "Gameplay", url: "#" }]
   
   }

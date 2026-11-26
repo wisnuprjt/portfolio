@@ -35,8 +35,8 @@ export default function Hero() {
 
       <div className="hero-copy">
         <p className="availability">
-          <span className="availability-dot" />
-          COMPUTER ENGINEERING · CLASS OF 2026
+          {/* <span className="availability-dot" />
+          COMPUTER ENGINEERING · CLASS OF 2026 */}
         </p>
 
         <p className="hero-kicker">
@@ -51,7 +51,7 @@ export default function Hero() {
 
         <div className="hero-actions">
           <a className="button button-dark" href="#projects">
-            Explore selected work
+            Explore Projects
             <ArrowUpRight size={16} />
           </a>
 
@@ -62,6 +62,14 @@ export default function Hero() {
           >
             <Download size={16} />
             Download CV
+          </a>
+          <a
+            className="button button-quiet"
+            href={contact.portfolio}
+            download
+          >
+            <Download size={16} />
+            Download Portfolio
           </a>
         </div>
 

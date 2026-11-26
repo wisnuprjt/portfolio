@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { X } from "lucide-react";
+import Image from "next/image";
 import type { Project } from "@/data/projects";
 
 export default function ProjectDialog({ project, onClose }: { project: Project | null; onClose: () => void }) {
@@ -26,6 +27,30 @@ export default function ProjectDialog({ project, onClose }: { project: Project |
           <button className="icon-button" onClick={onClose} aria-label="Close project details"><X size={18}/></button>
         </div>
         <div className="dialog-content">
+          {project.image && (
+            <div className="dialog-cover">
+              <Image
+                src={project.image}
+                alt={`${project.name} project cover`}
+                fill
+                sizes="(max-width: 720px) calc(100vw - 80px), 650px"
+              />
+            </div>
+          )}
+          {project.galleryImages && project.galleryImages.length > 0 && (
+            <div className="dialog-gallery">
+              {project.galleryImages.map((image, index) => (
+                <div className="dialog-gallery-item" key={`${image}-${index}`}>
+                  <Image
+                    src={image}
+                    alt={`${project.name} gallery image ${index + 1}`}
+                    fill
+                    sizes="(max-width: 680px) 20vw, 130px"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
           <p className="project-category">{project.category}</p>
           <h2 id="dialog-title">{project.name}</h2>
           <p className="dialog-summary">{project.summary}</p>
