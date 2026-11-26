@@ -96,5 +96,6 @@ export const projects: Project[] = [
     technologies: ["Unity", "C#", "3D Design", "Game Development"],
     featured: false, image: "/images/projects/racingcar/cover-placeholder.svg",
     links: [{ label: "Gameplay", url: "#" }]
+  
   }
 ];

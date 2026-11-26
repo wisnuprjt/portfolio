@@ -1,7 +1,7 @@
 
 export type SkillItem = {
   name: string;
-  icon?: string;
+  icon: string;
 };
 
 export type SkillGroup = {
@@ -30,11 +30,11 @@ export const skills: SkillGroup[] = [
     description:
       "Working with APIs, databases, and application data.",
     items: [
-      { name: "REST API" },
+      { name: "REST API", icon: "restapi" },
       { name: "Express.js", icon: "express" },
       { name: "MySQL", icon: "mysql" },
-      { name: "SQL" },
-      { name: "Database Design" },
+      { name: "SQL", icon: "sql" },
+      { name: "Database Design", icon: "databasedesign" },
     ],
   },
   {
@@ -44,8 +44,8 @@ export const skills: SkillGroup[] = [
     items: [
       { name: "ESP32", icon: "espressif" },
       { name: "Arduino", icon: "arduino" },
-      { name: "Sensor Integration" },
-      { name: "IoT Communication" },
+      { name: "Sensor Integration", icon: "sensorintegration" },
+      { name: "IoT Communication", icon: "iotcommunication" },
     ],
   },
   {
@@ -53,9 +53,9 @@ export const skills: SkillGroup[] = [
     description:
       "Integrating external services into practical applications.",
     items: [
-      { name: "API Integration" },
+      { name: "API Integration", icon: "apiintegration" },
       { name: "Hugging Face", icon: "huggingface" },
-      { name: "Data Visualization" },
+      { name: "Data Visualization", icon: "datavisualization" },
     ],
   },
   {

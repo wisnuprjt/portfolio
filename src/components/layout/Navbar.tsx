@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { navigation, contact } from "@/data/profile";
+import { navigation } from "@/data/profile";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Navbar() {

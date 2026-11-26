@@ -11,14 +11,14 @@ export const profile = {
     "A Computer Engineering graduate interested in building useful software, connecting hardware and digital systems, and turning technical ideas into practical solutions.",
   about:
     "My background combines software development, Internet of Things, system integration, and user-focused product design. I enjoy understanding how systems work end to end — from data collection and APIs to application interfaces and real-world implementation.",
-  profileImage: ""
+  profileImage: "/images/profile/wisnu.jpg",
 };
 
 export const contact = {
   email: "wisnuprjt@gmail.com",
   linkedin: "https://www.linkedin.com/in/wisnuprjt/",
   github: "https://github.com/wisnuprjt",
-  resume: "/documents/resume.pdf"
+  resume: "/documents/Kadek_Wisnu_Parijata_Putra_Resume.pdf"
 };
 
 export const navigation = [

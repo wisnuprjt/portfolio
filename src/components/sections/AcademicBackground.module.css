@@ -1,0 +1,344 @@
+
+/* =========================================
+   ACADEMIC BACKGROUND
+   Education Slider & Synchronized Awards
+========================================= */
+
+
+/* =========================================
+   1. EDUCATION SLIDER
+========================================= */
+
+.educationColumn {
+  min-width: 0;
+  width: 100%;
+}
+
+.educationSlider {
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.educationSlider:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+.educationTrack {
+  display: flex;
+  width: 200%;
+  align-items: stretch;
+  transition: transform 650ms cubic-bezier(.22, .68, 0, 1);
+  will-change: transform;
+}
+
+.educationSlide {
+  flex: 0 0 50%;
+  width: 50%;
+  min-width: 0;
+}
+
+
+/* =========================================
+   2. EDUCATION CARD
+========================================= */
+
+.educationCard {
+  width: 100%;
+  height: 430px;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Centered institution logo */
+
+.educationLogo {
+  width: 100%;
+  height: 112px;
+  min-height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 4px 0;
+  border: none;
+  background: transparent;
+}
+
+.educationLogoImage {
+  display: block;
+  width: clamp(72px, 9vw, 96px);
+  height: clamp(72px, 9vw, 96px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Consistent information alignment */
+
+.educationCard :global(.eyebrow) {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+.educationCard h3 {
+  overflow-wrap: anywhere;
+}
+
+.educationCard :global(.education-institution) {
+  overflow-wrap: anywhere;
+}
+
+.educationCard :global(.education-meta) {
+  min-height: 64px;
+}
+
+.educationCard :global(.education-result) {
+  flex: 1;
+  align-items: start;
+  min-width: 0;
+}
+
+.educationCard :global(.education-result div) {
+  min-width: 0;
+}
+
+.educationCard :global(.education-result strong) {
+  display: block;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   3. EDUCATION NAVIGATION
+========================================= */
+
+.educationControls {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-top: 13px;
+}
+
+.educationIndicators {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.educationIndicator {
+  width: 19px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition:
+    width 300ms ease,
+    background 300ms ease;
+}
+
+.educationIndicatorActive {
+  width: 35px;
+  background: var(--text);
+}
+
+.educationNavigation {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.educationCounter {
+  margin-right: 7px;
+  color: var(--text-muted);
+  font-size: 9px;
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.educationCounter span {
+  color: var(--border-strong);
+  padding: 0 3px;
+}
+
+.educationNavButton {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    background 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.educationNavButton:hover {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.educationNavButton:active {
+  transform: scale(.94);
+}
+
+.educationNavButton:focus-visible,
+.educationIndicator:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
+}
+
+
+/* =========================================
+   4. AWARDS & MILESTONES
+========================================= */
+
+.awardViewport {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  overflow: hidden;
+}
+
+.awardGroup {
+  width: 100%;
+  animation: awardGroupEnter 450ms cubic-bezier(.22, .68, 0, 1) both;
+}
+
+.awardGroupLabel {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@keyframes awardGroupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   5. TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .educationCard {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .educationLogo {
+    height: 112px;
+    min-height: 112px;
+  }
+
+  .educationLogoImage {
+    width: 84px;
+    height: 84px;
+  }
+
+  .awardViewport {
+    height: 390px;
+  }
+}
+
+
+/* =========================================
+   6. MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 680px) {
+  .educationColumn {
+    width: 100%;
+  }
+
+  .educationCard {
+    height: 440px;
+    min-height: 440px;
+    padding: 22px;
+  }
+
+  .educationLogo {
+    height: 108px;
+    min-height: 108px;
+    margin-bottom: 18px;
+  }
+
+  .educationLogoImage {
+    width: 76px;
+    height: 76px;
+  }
+
+  .educationCard h3 {
+    font-size: 21px;
+  }
+
+  .educationCard :global(.education-institution) {
+    font-size: 12px;
+  }
+
+  .educationCard :global(.education-result) {
+    gap: 12px;
+  }
+
+  .educationCard :global(.education-result strong) {
+    font-size: 11px;
+  }
+
+  .educationControls {
+    min-height: 55px;
+  }
+
+  .educationNavButton {
+    width: 34px;
+    height: 34px;
+  }
+
+  .awardViewport {
+    height: 390px;
+  }
+}
+
+
+/* =========================================
+   7. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .educationTrack,
+  .educationIndicator,
+  .educationNavButton {
+    transition: none !important;
+  }
+
+  .awardGroup {
+    animation: none !important;
+  }
+}
