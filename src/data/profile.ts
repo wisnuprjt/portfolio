@@ -1,25 +1,35 @@
+
 export const profile = {
   name: "Kadek Wisnu Parijata Putra",
   shortName: "Wisnu",
-  location: "Denpasar, Bali, Indonesia",
+  location: "Denpasar, Bali",
+
   degree: "Computer Engineering Graduate",
   university: "Universitas Diponegoro",
   gpa: "3.73 / 4.00",
   graduation: "2026",
-  headline: "Engineering ideas into practical digital systems.",
+
+  headline:
+    "Building intelligent systems through software, AI, and connected technologies.",
+
   introduction:
-    "A Computer Engineering graduate interested in building useful software, connecting hardware and digital systems, and turning technical ideas into practical solutions.",
+    "A Computer Engineering graduate from Diponegoro University, passionate about building intelligent digital solutions. Experienced in full-stack development, AI Agent engineering, IoT integration, and designing practical systems that connect software, data, and hardware.",
+
   about:
-    "My background combines software development, Internet of Things, system integration, and user-focused product design. I enjoy understanding how systems work end to end — from data collection and APIs to application interfaces and real-world implementation.",
+    ".",
+
   profileImage: "/images/profile/wisnu.jpg",
 };
 
 export const contact = {
   email: "wisnuprjt@gmail.com",
+  whatsapp: "6287862653704",
+  whatsappDisplay: "0878 6265 3704",
   linkedin: "https://www.linkedin.com/in/wisnuprjt/",
   github: "https://github.com/wisnuprjt",
+
   resume: "/documents/Kadek_Wisnu_Parijata_Putra_Resume.pdf",
-  portfolio: "/documents/Kadek_Wisnu_Parijata_Putra_Portfolio.pdf"
+  portfolio: "/documents/Kadek_Wisnu_Parijata_Putra_Portfolio.pdf",
 };
 
 export const navigation = [
@@ -29,5 +39,5 @@ export const navigation = [
   { label: "Projects", id: "projects" },
   { label: "Experience", id: "experience" },
   { label: "Education", id: "education" },
-  { label: "Contact", id: "contact" }
+  { label: "Contact", id: "contact" },
 ];

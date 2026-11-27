@@ -1,45 +1,66 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
 import { certifications } from "@/data/achievements";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const providerNames = {
-  undip: "UNDIP",
+  undip: "Service English Unit, Universitas Diponegoro 2026",
   ibm: "IBM",
-  cisco: "cisco",
-  oracle: "ORACLE",
-  huawei: "HUAWEI",
+  cisco: "Cisco Networking Academy",
+  oracle: "Oracle Academy",
+  huawei: "Huawei Academy",
 } as const;
 
+type Certification = (typeof certifications)[number];
+
+const providerLogos: Record<Certification["provider"], string> = {
+  undip: "/images/education/undip.png",
+  ibm: "/images/education/ibm.webp",
+  cisco: "/images/education/cisco.webp",
+  oracle: "/images/education/oracle.png",
+  huawei: "/images/education/huawei.webp",
+};
+
 export default function Certifications() {
+  const certificationsByProvider = certifications.reduce((groups, item) => {
+    const providerCertifications = groups.get(item.provider) ?? [];
+    providerCertifications.push(item);
+    groups.set(item.provider, providerCertifications);
+    return groups;
+  }, new Map<Certification["provider"], Certification[]>());
+
   return (
     <div className="certification-block">
-      <div>
-        <p className="eyebrow">CONTINUOUS LEARNING</p>
-        <h3>Certifications &amp; credentials.</h3>
-      </div>
+      <SectionHeading
+        eyebrow="CONTINUOUS LEARNING"
+        title="Certifications & Training."
+      />
       <div className="certification-list">
-        {certifications.map((item) => (
-          <div className="certification-item" key={item.title}>
-            <div
-              className={`certification-logo certification-logo-${item.provider}`}
-              role="img"
-              aria-label={`${providerNames[item.provider]} logo`}
-            >
-              {item.provider === "undip" ? (
+        {[...certificationsByProvider].map(([provider, items]) => (
+          <section className="certification-group" key={provider}>
+            <div className="certification-group-heading">
+              <div
+                className={`certification-logo certification-logo-${provider}`}
+                role="img"
+                aria-label={`${providerNames[provider]} logo`}
+              >
                 <Image
-                  src="/images/education/undip.png"
+                  src={providerLogos[provider]}
                   alt=""
                   width={48}
                   height={32}
                 />
-              ) : (
-                <span>{providerNames[item.provider]}</span>
-              )}
+              </div>
+              <h3>{providerNames[provider]}</h3>
             </div>
-            <span>{item.title}</span>
-            <time dateTime={item.year}>{item.year}</time>
-            <Check size={15} aria-hidden="true" />
-          </div>
+            <ul className="certification-items">
+              {items.map((item) => (
+                <li className="certification-item" key={item.title}>
+                  <span>{item.title}</span>
+                  <time dateTime={item.year}>{item.year}</time>
+                </li>
+              ))}
+            </ul>
+          </section>
         ))}
       </div>
     </div>

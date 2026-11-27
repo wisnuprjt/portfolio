@@ -1,56 +1,107 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { navigation } from "@/data/profile";
+import Image from "next/image";
+import {
+  BriefcaseBusiness,
+  Code2,
+  FolderKanban,
+  GraduationCap,
+  House,
+  type LucideIcon,
+  Mail,
+  UserRound,
+} from "lucide-react";
+import { navigation, profile } from "@/data/profile";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
+const navigationIcons: Record<(typeof navigation)[number]["id"], LucideIcon> = {
+  home: House,
+  about: UserRound,
+  expertise: Code2,
+  projects: FolderKanban,
+  experience: BriefcaseBusiness,
+  education: GraduationCap,
+  contact: Mail,
+};
+
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
 
   useEffect(() => {
-    const nodes = navigation
+    const sections = navigation
       .map((item) => document.getElementById(item.id))
-      .filter(Boolean) as HTMLElement[];
+      .filter((section): section is HTMLElement => section !== null);
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.35;
+      let current = sections[0]?.id ?? "home";
 
-      if (visible) setActive(visible.target.id);
-    }, { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.15, 0.35, 0.6] });
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= marker) {
+          current = section.id;
+        } else {
+          break;
+        }
+      }
 
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+      setActive(current);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
-    <header className="site-header">
-      <div className="nav-shell">
-        <a className="brand" href="#home" onClick={closeMenu} aria-label="Wisnu home">
-          <span className="brand-mark">W.</span>
-          <span className="brand-name">Wisnu<span className="brand-period">.</span></span>
+    <header className="floating-nav-shell">
+      <nav className="floating-nav" aria-label="Main navigation">
+        <a className="dock-avatar" href="#home" aria-label="Wisnu home">
+          <Image
+            src={profile.profileImage}
+            alt="Wisnu"
+            width={36}
+            height={36}
+            priority
+          />
         </a>
-        <nav className={`main-nav ${menuOpen ? "is-open" : ""}`} aria-label="Main navigation">
-          {navigation.map((item) => (
-            <a key={item.id} href={`#${item.id}`} className={active === item.id ? "active" : ""} onClick={closeMenu}>
-              {item.label}
-            </a>
-          ))}
-          <div className="mobile-theme"><ThemeToggle /></div>
-        </nav>
-        <div className="nav-actions">
-          <ThemeToggle />
-          <a className="nav-contact" href="#contact">Let&apos;s talk <ArrowUpRight size={14}/></a>
-          <button className="mobile-menu icon-button" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close menu" : "Open menu"}>
-            {menuOpen ? <X size={19}/> : <Menu size={19}/>}
-          </button>
+
+        <span className="dock-divider" aria-hidden="true" />
+
+        <div className="dock-links">
+          {navigation.map((item) => {
+            const Icon = navigationIcons[item.id];
+            const isActive = active === item.id;
+
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`dock-link${isActive ? " active" : ""}`}
+                aria-label={item.label}
+                aria-current={isActive ? "location" : undefined}
+                title={item.label}
+              >
+                <Icon size={18} strokeWidth={1.8} aria-hidden="true" />
+                <span className="dock-tooltip" aria-hidden="true">
+                  {item.label}
+                </span>
+              </a>
+            );
+          })}
         </div>
-      </div>
+
+        <span className="dock-divider" aria-hidden="true" />
+
+        <div className="dock-theme">
+          <ThemeToggle />
+        </div>
+      </nav>
     </header>
   );
 }

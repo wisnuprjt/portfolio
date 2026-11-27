@@ -1,6 +1,7 @@
 import { Apple, ArrowRight, ArrowUpRight, Brain, CarFront, Cpu, Layers3, type LucideIcon } from "lucide-react";
 import Image from "next/image";
 import type { Project } from "@/data/projects";
+import ProjectTechStack from "@/components/projects/ProjectTechStack";
 
 const projectIcons: Record<string, LucideIcon> = {
   colivera: Cpu,
@@ -51,7 +52,7 @@ export default function ProjectCard({
           <span className="round-arrow"><ArrowUpRight size={17}/></span>
         </div>
         <p>{project.summary}</p>
-        <div className="tag-list">{project.technologies.slice(0, 4).map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+        <ProjectTechStack technologies={project.technologies.slice(0, 4)} />
         <span className="text-link">Explore case study <ArrowRight size={14}/></span>
       </div>
     </button>

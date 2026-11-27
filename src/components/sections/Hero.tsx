@@ -46,7 +46,13 @@ export default function Hero() {
         <h1>{profile.headline}</h1>
 
         <p className="hero-description">
-          {profile.introduction}
+          A Computer Engineering graduate from Diponegoro University,
+          passionate about building intelligent digital solutions.
+          Experienced in{" "}
+          <strong>full-stack development</strong>,{" "}
+          <strong>AI Agent engineering</strong>,{" "}
+          <strong>IoT integration</strong>, and  <strong>designing practical
+          systems that connect software, data, and hardware </strong>.
         </p>
 
         <div className="hero-actions">

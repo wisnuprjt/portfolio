@@ -1,15 +1,41 @@
 
-export const organizations = [
+type OrganizationExperience = {
+  organization: string;
+  position: string;
+  period: string;
+  type: string;
+  logo: string;
+  logoAlt: string;
+  highlights: string[];
+};
+
+export const organizations: OrganizationExperience[] = [
   {
-    organization: "Kronik Film Media UNDIP",
-    position:
-      "Creative Team Member · Editor · Videographer · Speaker · Director",
+    organization: "Kronik Film Media",
+    position: "Creative Team Member · Editor · Videographer · Speaker · Director",
     period: "2022 – 2024",
+    type: "Campus organization",
+    logo: "/images/experience/kronikfilmmedia.jpg",
+    logoAlt: "Kronik Film Media logo",
+    highlights: [],
   },
   {
-    organization: "Google Developer Student Clubs UNDIP",
+    organization: "Google Developer Student Club Undip",
     position: "Member",
     period: "2023 – 2025",
+    type: "Campus organization",
+    logo: "/images/experience/googledeveloper.jpg",
+    logoAlt: "Google Developer Student Club Undip logo",
+    highlights: [],
+  },
+  {
+    organization: "KMHD Undip",
+    position: "Creative Team & Documenter",
+    period: "2022 – 2024",
+    type: "Campus organization",
+    logo: "/images/experience/kmhd undip.jpg",
+    logoAlt: "KMHD Undip logo",
+    highlights: [],
   },
 ];
 
