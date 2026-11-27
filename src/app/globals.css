@@ -437,6 +437,13 @@ a:focus-visible {
   gap: 7px;
 }
 
+.hero-contact-details {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+}
+
 .hero-links a:hover {
   color: var(--text);
 }

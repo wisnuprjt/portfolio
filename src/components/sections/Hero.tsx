@@ -5,7 +5,9 @@ import {
   Download,
   Github,
   Linkedin,
+  Mail,
   MapPin,
+  Phone,
 } from "lucide-react";
 
 import Lanyard from "@/components/Lanyard";
@@ -100,10 +102,28 @@ export default function Hero() {
             <ArrowUpRight size={12} />
           </a>
 
-          <span>
-            <MapPin size={15} />
-            {profile.location}
-          </span>
+          <a
+            href={`https://wa.me/${contact.whatsapp}`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Chat on WhatsApp: ${contact.whatsappDisplay}`}
+          >
+            <Phone size={15} />
+            {contact.whatsappDisplay}
+            <ArrowUpRight size={12} />
+          </a>
+
+          <div className="hero-contact-details">
+            <a href={`mailto:${contact.email}`}>
+              <Mail size={15} />
+              {contact.email}
+            </a>
+
+            <span>
+              <MapPin size={15} />
+              {profile.location}
+            </span>
+          </div>
         </div>
       </div>
 
