@@ -383,6 +383,10 @@ a:focus-visible {
   color: var(--text-primary);
 }
 
+.hero-description .hero-nowrap {
+  white-space: nowrap;
+}
+
 
 .hero-actions {
   display: flex;
@@ -723,11 +727,11 @@ a:focus-visible {
   grid-column: span 2;
 }
 
-.skill-card:nth-child(4) {
+.skill-card:nth-child(7) {
   grid-column: 2 / span 2;
 }
 
-.skill-card:nth-child(5) {
+.skill-card:nth-child(8) {
   grid-column: 4 / span 2;
 }
 
@@ -892,6 +896,9 @@ a:focus-visible {
 
 .project-card {
   flex: 0 0 calc((100% - 20px) / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   min-width: 0;
   scroll-snap-align: start;
   text-align: left;
@@ -935,7 +942,8 @@ a:focus-visible {
 
 .project-art-image {
   z-index: 0;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .project-art::before,
@@ -1615,10 +1623,15 @@ a:focus-visible {
   backdrop-filter: blur(5px);
 }
 
+.project-dialog-frame {
+  position: relative;
+  width: min(1040px, 100%);
+}
+
 .project-dialog {
   display: flex;
   flex-direction: column;
-  width: min(1040px, 100%);
+  width: 100%;
   max-height: min(88vh, 900px);
   overflow: hidden;
   background: var(--bg);
@@ -1638,6 +1651,85 @@ a:focus-visible {
 
 .dialog-top .eyebrow {
   margin: 0;
+}
+
+.dialog-side-navigation {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dialog-side-navigation .icon-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translateY(-50%);
+  border-color: transparent;
+  background: var(--inverse);
+  color: var(--inverse-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+  pointer-events: auto;
+}
+
+.dialog-side-navigation .icon-button:hover:not(:disabled) {
+  background: var(--surface-soft);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.dialog-side-navigation .icon-button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.dialog-nav-previous {
+  left: -64px;
+}
+
+.dialog-nav-next {
+  right: -64px;
+}
+
+.dialog-side-navigation .icon-button:disabled {
+  cursor: not-allowed;
+  opacity: .35;
+}
+
+.dialog-side-navigation .icon-button:disabled:hover {
+  background: var(--inverse);
+  border-color: transparent;
+}
+
+@media (max-width: 1100px) {
+  .project-dialog-frame {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: calc(100dvh - 40px);
+  }
+
+  .dialog-side-navigation {
+    position: static;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+    pointer-events: auto;
+  }
+
+  .dialog-side-navigation .icon-button {
+    position: static;
+    transform: none;
+  }
+
+  .project-dialog {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: calc(100dvh - 92px);
+  }
 }
 
 .dialog-content {
@@ -2097,10 +2189,13 @@ a:focus-visible {
     padding: 9px;
   }
 
+  .project-dialog-frame {
+    max-height: calc(100dvh - 18px);
+  }
+
   .project-dialog {
     width: 100%;
-    max-height: calc(100vh - 18px);
-    max-height: calc(100dvh - 18px);
+    max-height: calc(100dvh - 70px);
   }
 
   .dialog-hero,

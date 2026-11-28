@@ -40,12 +40,13 @@ export default function About() {
 
           <p>
             Beyond development, I have hands-on experience in{" "}
-            <strong>IT systems and secure data management </strong>
+            <strong>IT systems, network infrastructure, and secure data management </strong>
             through my internship at <strong>NTMC Korlantas Polri</strong>.
             My background also includes software testing, SDLC
             implementation, technical documentation, and IT
-            infrastructure fundamentals, including Windows and
-            Linux administration, networking, and troubleshooting.
+            infrastructure management, including Windows and
+            Linux administration, <strong>computer networking,
+            network configuration, and troubleshooting</strong>.
             I enjoy exploring emerging technologies and turning
             complex engineering concepts into reliable, meaningful
             solutions.

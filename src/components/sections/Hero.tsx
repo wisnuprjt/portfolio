@@ -49,12 +49,14 @@ export default function Hero() {
 
         <p className="hero-description">
           A Computer Engineering graduate from Diponegoro University,
-          passionate about building intelligent digital solutions.
+          passionate about building reliable digital solutions.
           Experienced in{" "}
-          <strong>full-stack development</strong>,{" "}
-          <strong>AI Agent engineering</strong>,{" "}
-          <strong>IoT integration</strong>, and  <strong>designing practical
-          systems that connect software, data, and hardware </strong>.
+          <strong className="hero-nowrap">full-stack development</strong>,{" "}
+          <strong>AI agent engineering</strong>,{" "}
+          <strong>IoT integration</strong>,{" "}
+          <strong>IT infrastructure</strong>, and{" "}
+          <strong>computer networking</strong>, with a focus on connecting
+          software, data, networks, and hardware.
         </p>
 
         <div className="hero-actions">

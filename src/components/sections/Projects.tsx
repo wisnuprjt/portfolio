@@ -42,6 +42,14 @@ export default function Projects() {
   const scrollEndTimerRef = useRef<number | null>(null);
   const suppressClickTimerRef = useRef<number | null>(null);
   const isPaused = isHovered || isFocused || isPointerDown;
+  const selectedProjectIndex = selectedProject
+    ? projects.findIndex((project) => project.id === selectedProject.id)
+    : -1;
+
+  const navigateProject = (direction: -1 | 1) => {
+    const nextProject = projects[selectedProjectIndex + direction];
+    if (nextProject) setSelectedProject(nextProject);
+  };
 
   useEffect(() => {
     const track = trackRef.current;
@@ -75,7 +83,7 @@ export default function Projects() {
 
       const step = getProjectStep(track);
       if (step) track.scrollBy({ left: step, behavior: "smooth" });
-    }, 3500);
+    }, 1500);
 
     return () => window.clearInterval(interval);
   }, [isPaused]);
@@ -193,7 +201,13 @@ export default function Projects() {
           ))}
         </div>
       </section>
-      <ProjectDialog project={selectedProject} onClose={() => setSelectedProject(null)}/>
+      <ProjectDialog
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+        onNavigate={navigateProject}
+        hasPrevious={selectedProjectIndex > 0}
+        hasNext={selectedProjectIndex >= 0 && selectedProjectIndex < projects.length - 1}
+      />
     </>
   );
 }

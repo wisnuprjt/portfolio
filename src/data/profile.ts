@@ -10,7 +10,7 @@ export const profile = {
   graduation: "2026",
 
   headline:
-    "Building intelligent systems through software, AI, and connected technologies.",
+    "Building intelligent systems through software, AI, infrastructure and connected technologies.",
 
   introduction:
     "A Computer Engineering graduate from Diponegoro University, passionate about building intelligent digital solutions. Experienced in full-stack development, AI Agent engineering, IoT integration, and designing practical systems that connect software, data, and hardware.",
@@ -28,8 +28,8 @@ export const contact = {
   linkedin: "https://www.linkedin.com/in/wisnuprjt/",
   github: "https://github.com/wisnuprjt",
 
-  resume: "/documents/Kadek_Wisnu_Parijata_Putra_Resume.pdf",
-  portfolio: "/documents/Kadek_Wisnu_Parijata_Putra_Portfolio.pdf",
+  resume: "/documents/Kadek Wisnu Parijata Putra_CV.pdf",
+  portfolio: "/documents/Kadek Wisnu Parijata Putra_Portfolio.pdf",
 };
 
 export const navigation = [

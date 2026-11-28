@@ -30,6 +30,17 @@ const skillColors: Record<string, string> = {
   github: "#181717",
   postman: "#FF6C37",
   visualstudiocode: "#007ACC",
+  linux: "#FCC624",
+  ubuntu: "#E95420",
+  docker: "#2496ED",
+  virtualbox: "#183A61",
+  githubactions: "#2088FF",
+  network: "#1565C0",
+  cisco: "#049FD9",
+  openvpn: "#EA7E20",
+  auth0: "#EB5424",
+  apachejmeter: "#D22128",
+  grafana: "#F46800",
 };
 
 const technologyLogos = skills.flatMap((group) =>

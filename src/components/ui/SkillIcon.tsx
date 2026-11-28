@@ -56,10 +56,21 @@ const brandIcons: Record<string, string> = {
   visualstudiocode:
     "https://cdn.simpleicons.org/visualstudiocode/007ACC",
   postman: "https://cdn.simpleicons.org/postman/FF6C37",
+  linux: "https://cdn.simpleicons.org/linux/FCC624",
+  ubuntu: "https://cdn.simpleicons.org/ubuntu/E95420",
+  docker: "https://cdn.simpleicons.org/docker/2496ED",
+  virtualbox: "https://cdn.simpleicons.org/virtualbox/183A61",
+  githubactions: "https://cdn.simpleicons.org/githubactions/2088FF",
+  cisco: "https://cdn.simpleicons.org/cisco/049FD9",
+  openvpn: "https://cdn.simpleicons.org/openvpn/EA7E20",
+  auth0: "https://cdn.simpleicons.org/auth0/EB5424",
+  apachejmeter: "https://cdn.simpleicons.org/apachejmeter/D22128",
+  grafana: "https://cdn.simpleicons.org/grafana/F46800",
 };
 
 const conceptColors: Record<string, string> = {
   restapi: "#FF6C37",
+  network: "#1565C0",
   sql: "#00758F",
   databasedesign: "#4479A1",
   sensorintegration: "#8A2BE2",
@@ -91,6 +102,7 @@ const conceptColors: Record<string, string> = {
 
 const conceptIcons: Record<string, LucideIcon> = {
   restapi: Network,
+  network: Network,
   sql: Database,
   databasedesign: Database,
   sensorintegration: Cpu,
